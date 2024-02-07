@@ -7,12 +7,7 @@ import { ReactNode, Suspense, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { AccountChecker } from '../account/account-ui';
-import {
-  ClusterChecker,
-  ClusterUiSelect,
-  ExplorerLink,
-} from '../cluster/cluster-ui';
+
 import toast, { Toaster } from 'react-hot-toast';
 
 const pages: { label: string; path: string }[] = [
@@ -50,12 +45,10 @@ export function UiLayout({ children }: { children: ReactNode }) {
         </div>
         <div className="flex-none space-x-2">
           <WalletButton />
-          <ClusterUiSelect />
+         
         </div>
       </div>
-      <ClusterChecker>
-        <AccountChecker />
-      </ClusterChecker>
+     
       <div className="flex-grow mx-4 lg:mx-auto">
         <Suspense
           fallback={
@@ -185,11 +178,10 @@ export function useTransactionToast() {
     toast.success(
       <div className={'text-center'}>
         <div className="text-lg">Transaction sent</div>
-        <ExplorerLink
-          path={`tx/${signature}`}
-          label={'View Transaction'}
-          className="btn btn-xs btn-primary"
-        />
+        <div>
+        <p>{`tx/${signature}`}</p>
+        <p>{'View Transaction'}</p>
+        </div>
       </div>
     );
   };
