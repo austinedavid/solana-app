@@ -7,6 +7,7 @@ import { ExplorerLink } from '../cluster/cluster-ui';
 import {
   useCounterProgram,
   useCounterProgramAccount,
+  
 } from './counter-data-access';
 
 export function CounterCreate() {
@@ -67,7 +68,6 @@ function CounterCard({ counter }: { counter: PublicKey }) {
     useCounterProgramAccount({
       counter,
     });
-
   const count = useMemo(() => account.data?.count ?? 0, [account.data?.count]);
 
   return account.isLoading ? (

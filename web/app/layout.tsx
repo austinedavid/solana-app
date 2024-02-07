@@ -20,7 +20,7 @@ export default function RootLayout({
         <Provider>
           <ClusterProvider>
             <SolanaProvider>
-              <UiLayout>{children}</UiLayout>
+              {children}
             </SolanaProvider>
           </ClusterProvider>
         </Provider>
